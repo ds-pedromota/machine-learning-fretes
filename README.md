@@ -1,7 +1,10 @@
 ```markdown
-# 🚚 Previsão de Custos de Frete (End-to-End)
+# Previsão de Custos de Frete (End-to-End)
 *Da coleta de dados ao deploy da API REST*
 
+<a href="https://colab.research.google.com/drive/1iMlZkeInbe6lCX9TETwLYcfTq8XP2qPb?usp=sharing" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open PROJECT In Colab"/>
+</a>
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458?style=for-the-badge&logo=pandas&logoColor=white)
@@ -10,59 +13,62 @@
 
 ---
 
-## 🎯 O Problema e a Solução
+## O Problema e a Solução
 
-* **Problema:** Empreendedores de e-commerce enfrentam dificuldades em prever custos de envio quando os serviços postais (como a API dos Correios) falham ou estão indisponíveis, afetando a conversão de vendas.
-* **Solução:** Uma API baseada num modelo preditivo de *Machine Learning* treinado com dados reais da Olist, capaz de calcular o valor do frete instantaneamente a partir das dimensões do pacote e da localização.
+* **Problema:** Empreendedores de e-commerce enfrentam dificuldades em prever custos de envio quando os serviços postais (como a API dos Correios) apresentam instabilidade ou indisponibilidade, o que afeta diretamente a conversão de vendas e a operação logística.
+* **Solução:** Desenvolvimento de uma API baseada em um modelo preditivo treinado com dados reais da Olist. A aplicação é capaz de calcular o valor do frete de forma independente, utilizando variáveis como dimensões do pacote, categoria do produto e localização.
 
-## 🧠 Arquitetura do Projeto
-O projeto foi construído cobrindo todo o ciclo de vida dos dados:
+## Arquitetura do Projeto
+
+O projeto documenta todo o pipeline de dados, estruturado nas seguintes etapas:
 
 ### 1. Exploração e Modelagem (Jupyter Notebook)
-- Extração e unificação de múltiplos *datasets* do [Kaggle Brazilian E-commerce by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
-- Tratamento de nulos e remoção de *outliers* de preço e frete.
-- **Feature Engineering:** Cálculo de `Volume`, `Densidade`, `Distância` (em km) entre vendedor e cliente, e variáveis sazonais (`black_friday`, `natal`).
-- Treino e validação cruzada (`KFold`) utilizando algoritmos avançados (XGBoost, LightGBM, CatBoost).
+- Extração e unificação de múltiplos datasets do Kaggle Brazilian E-commerce by Olist.
+- Limpeza de dados, tratamento de valores nulos e remoção de outliers nas variáveis de preço e frete.
+- **Feature Engineering:** Cálculo numérico de Volume, Densidade e Distância (em km) entre vendedor e cliente, além da criação de variáveis temporais/sazonais (Black Friday, Natal).
+- Treinamento de modelos de regressão (XGBoost, LightGBM, CatBoost) com otimização de hiperparâmetros e validação cruzada (KFold).
 
 ### 2. Deploy e Engenharia de Software (FastAPI)
-- Construção de um endpoint `POST /prever-frete`.
-- Conversão dinâmica e validação rigorosa de *features* (tipagem de dados e conversão para categorias do Pandas exigidas pelo modelo).
+- Construção de uma interface de comunicação via endpoint POST (`/prever-frete`).
+- Implementação de validação rigorosa de payload utilizando Pydantic.
+- Conversão dinâmica de tipagem de dados no back-end (casting de strings para representações categóricas do Pandas) para compatibilidade em tempo de execução com o modelo XGBoost serializado.
 
-## 📊 Principais Resultados (Métricas)
-A validação cruzada em 5 *folds* apresentou uma performance consistente do modelo, obtendo as seguintes médias:
+## Principais Resultados (Métricas)
+
+A validação cruzada do modelo final (5 folds) apresentou estabilidade preditiva com as seguintes médias:
 * **MAE (Erro Médio Absoluto):** ~ 5.71
 * **MSE (Erro Quadrático Médio):** ~ 121.56
 * **R² (Coeficiente de Determinação):** ~ 0.52
 
-> *Nota: O R² de 0.52 é um baseline sólido, considerando a alta volatilidade e as diferentes políticas de preços das transportadoras no Brasil.*
+*Nota técnica: O R² de 0.52 estabelece um baseline aceitável para o escopo do projeto, justificado pela alta volatilidade logística e pelas diferentes políticas de precificação das transportadoras atuantes no mercado brasileiro.*
 
 ---
 
-## 💻 Como executar o projeto localmente
+## Como executar o projeto localmente
 
-**1. Clone o repositório e entre na pasta da API:**
+**1. Clone o repositório e acesse a raiz da API:**
 ```bash
-git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
+git clone [https://github.com/ds-pedromota/machine-learning-fretes.git](https://github.com/ds-pedromota/machine-learning-fretes.git)
 cd api
 
 ```
 
-**2. Instale as dependências:**
+**2. Instale as dependências necessárias:**
 
 ```bash
 pip install fastapi uvicorn pandas joblib xgboost pydantic
 
 ```
 
-**3. Inicie o servidor local:**
+**3. Inicie o servidor ASGI localmente:**
 
 ```bash
 uvicorn main:app --reload
 
 ```
 
-**4. Teste no navegador (Swagger UI):**
-Acesse `http://127.0.0.1:8000/docs` e utilize o JSON abaixo no endpoint **POST** para testar a previsão:
+**4. Teste a requisição no navegador (via Swagger UI):**
+Acesse `http://127.0.0.1:8000/docs` e utilize o payload JSON abaixo no endpoint POST para validar a inferência do modelo:
 
 ```json
 {
@@ -93,9 +99,13 @@ Acesse `http://127.0.0.1:8000/docs` e utilize o JSON abaixo no endpoint **POST**
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
 **Desenvolvido por Jp.Mota**
 
-Acompanhe o meu portfólio para ver mais projetos onde a engenharia de sistemas encontra a ciência de dados:
-🌐 [Acessar Portfólio](https://dspedroportfolio.vercel.app/)
+Para analisar o código-fonte de outros projetos que integram desenvolvimento de sistemas e ciência de dados, acesse o portfólio:
+[Acessar Portfólio](https://dspedroportfolio.vercel.app/)
+
+```
+
+```
