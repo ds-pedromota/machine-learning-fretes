@@ -1,16 +1,38 @@
 ```markdown
 # Previsão de Custos de Frete (End-to-End)
 *Da coleta de dados ao deploy da API REST*
+```
+<p>Projeto:</p>
+<a href="https://colab.research.google.com/drive/1iMlZkeInbe6lCX9TETwLYcfTq8XP2qPb?usp=sharing" target="_blank">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" width="200"/>
+</a>
 
-<a href="https://colab.research.google.com/drive/1iMlZkeInbe6lCX9TETwLYcfTq8XP2qPb?usp=sharing" target="_blank">Acessar Notebook no Google Colab</a>
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white)
-![Pandas](https://img.shields.io/badge/pandas-%23150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=FastAPI&logoColor=white)
+<p>
+  <p>Tecnologias usadas:</p>
+  
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+
+![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
+![Seaborn](https://img.shields.io/badge/Seaborn-44B78B?style=for-the-badge)
+![Missingno](https://img.shields.io/badge/Missingno-5C5C5C?style=for-the-badge)
+![Summarytools](https://img.shields.io/badge/Summarytools-5C5C5C?style=for-the-badge)
+
+![GeoPy](https://img.shields.io/badge/GeoPy-1E88E5?style=for-the-badge)
+![Category Encoders](https://img.shields.io/badge/Category_Encoders-1E88E5?style=for-the-badge)
+
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-172B4D?style=for-the-badge)
+![LightGBM](https://img.shields.io/badge/LightGBM-F37626?style=for-the-badge)
+![CatBoost](https://img.shields.io/badge/CatBoost-FFC000?style=for-the-badge&logoColor=black)
+
+![Optuna](https://img.shields.io/badge/Optuna-4B8BBE?style=for-the-badge)
+</p>
 
 ---
-
+---
+```
 ## O Problema e a Solução
 
 * **Problema:** Empreendedores de e-commerce enfrentam dificuldades em prever custos de envio quando os serviços postais (como a API dos Correios) apresentam instabilidade ou indisponibilidade, o que afeta diretamente a conversão de vendas e a operação logística.
@@ -103,7 +125,3 @@ Acesse `http://127.0.0.1:8000/docs` e utilize o payload JSON abaixo no endpoint 
 
 Para analisar o código-fonte de outros projetos que integram desenvolvimento de sistemas e ciência de dados, acesse o portfólio:
 [Acessar Portfólio](https://dspedroportfolio.vercel.app/)
-
-```
-
-```
