@@ -3,7 +3,7 @@
 *Da coleta de dados ao deploy da API REST*
 ```
 <p>Projeto:</p>
-<a href="https://colab.research.google.com/drive/1iMlZkeInbe6lCX9TETwLYcfTq8XP2qPb?usp=sharing" target="_blank">
+<a href="https://colab.research.google.com/drive/1iMlZkeInbe6lCX9TETwLYcfTq8XP2qPb?usp=sharing"target="_blank">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" width="200"/>
 </a>
 
