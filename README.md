@@ -2,9 +2,7 @@
 # Previsão de Custos de Frete (End-to-End)
 *Da coleta de dados ao deploy da API REST*
 
-<a href="https://colab.research.google.com/drive/1iMlZkeInbe6lCX9TETwLYcfTq8XP2qPb?usp=sharing" target="_blank">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open PROJECT In Colab"/>
-</a>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1iMlZkeInbe6lCX9TETwLYcfTq8XP2qPb?usp=sharing)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458?style=for-the-badge&logo=pandas&logoColor=white)
@@ -48,7 +46,7 @@ A validação cruzada do modelo final (5 folds) apresentou estabilidade preditiv
 
 **1. Clone o repositório e acesse a raiz da API:**
 ```bash
-git clone [https://github.com/ds-pedromota/machine-learning-fretes.git](https://github.com/ds-pedromota/machine-learning-fretes.git)
+git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
 cd api
 
 ```
